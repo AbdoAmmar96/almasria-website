@@ -9,6 +9,7 @@
     burger.addEventListener("click", function () {
       var open = nav.classList.toggle("open");
       burger.classList.toggle("open", open);
+      document.body.classList.toggle("nav-open", open);
       document.body.style.overflow = open ? "hidden" : "";
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
@@ -23,6 +24,7 @@
         }
         nav.classList.remove("open");
         burger.classList.remove("open");
+        document.body.classList.remove("nav-open");
         document.body.style.overflow = "";
       });
     });
