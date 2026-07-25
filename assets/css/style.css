@@ -96,7 +96,10 @@ h1,h2,h3,h4{font-family:var(--fd);line-height:1.4;color:var(--navy)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 @media(max-width:1080px){
-  .nav{position:fixed;inset:0;top:0;background:var(--navy);flex-direction:column;justify-content:flex-start;
+  /* backdrop-filter would make .header a containing block for the fixed drawer,
+     clipping it to the header's own box — the bar is 94% opaque anyway */
+  .header{backdrop-filter:none}
+  .nav{position:fixed;inset:0;top:0;background:#000;flex-direction:column;justify-content:flex-start;
     align-items:stretch;padding:110px 26px 40px;gap:.3rem;transform:translateX(100%);transition:.35s;
     z-index:49;overflow-y:auto}
   .nav.open{transform:translateX(0)}
@@ -117,6 +120,7 @@ h1,h2,h3,h4{font-family:var(--fd);line-height:1.4;color:var(--navy)}
   .dropdown a.all:hover{background:rgba(238,135,34,.16);color:var(--orange-l)}
   .dropdown a.all:hover svg{color:var(--orange-l)}
   .burger{display:block;position:relative;z-index:51}
+  .burger.open span{background:#fff}
   .header-cta .btn{display:none}
   .header-cta .burger{display:block}
 }

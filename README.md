@@ -2,6 +2,73 @@
 
 موقع تعريفي متعدد الصفحات (10 صفحات) — HTML/CSS/JS خالص، من غير أي داشبورد أو قواعد بيانات.
 
+![الصفحة الرئيسية](screenshots/00-dropdown.jpg)
+
+## المميزات
+
+- **10 صفحات** كاملة: رئيسية، عن الشركة، 5 صفحات خدمات، سابقات أعمال، واتصل بنا
+- **عربي RTL** بالكامل مع خطوط Cairo و Tajawal
+- **Responsive** — قائمة جانبية للموبايل وشبكات مرنة لكل المقاسات
+- **صفر مكتبات خارجية** — مفيش jQuery ولا Bootstrap ولا build step؛ HTML و CSS و JS خام
+- **أيقونات SVG inline** — من غير أي ملف أيقونات أو طلبات شبكة زيادة
+- **حركات عند التمرير** بـ IntersectionObserver + عدّادات متحركة
+- **فورم عرض سعر** بيحوّل البيانات لرسالة واتساب جاهزة
+- **SEO كامل** — Schema.org و Open Graph و canonical و sitemap
+
+## معاينة
+
+### الموبايل
+
+| القائمة الجانبية | الرئيسية | خدماتنا |
+|:---:|:---:|:---:|
+| <img src="screenshots/m-04-menu.jpg" width="240"> | <img src="screenshots/m-01-home-top.jpg" width="240"> | <img src="screenshots/m-03-services-top.jpg" width="240"> |
+
+### كل الصفحات
+
+<details>
+<summary><b>افتح معرض الصفحات العشرة (لقطات كاملة)</b></summary>
+
+#### الرئيسية
+![الرئيسية](screenshots/01-home.jpg)
+
+#### عن الشركة
+![عن الشركة](screenshots/02-about.jpg)
+
+#### خدماتنا
+![خدماتنا](screenshots/03-services.jpg)
+
+#### الخدمات البترولية
+![الخدمات البترولية](screenshots/04-petroleum-services.jpg)
+
+#### الصيانة والاختبار والمعايرة
+![الصيانة والاختبار والمعايرة](screenshots/05-maintenance-calibration.jpg)
+
+#### الترميل والدهان
+![الترميل والدهان](screenshots/06-sandblasting-painting.jpg)
+
+#### العزل الحراري والفيبرجلاس
+![العزل الحراري والفيبرجلاس](screenshots/07-thermal-insulation.jpg)
+
+#### توريدات مهمات المصانع
+![توريدات مهمات المصانع](screenshots/08-supplies.jpg)
+
+#### سابقات الأعمال
+![سابقات الأعمال](screenshots/09-projects.jpg)
+
+#### اتصل بنا
+![اتصل بنا](screenshots/10-contact.jpg)
+
+</details>
+
+## التشغيل محليًا
+
+الموقع static بالكامل — يكفي تفتح `index.html` في المتصفح مباشرة، أو تشغّل سيرفر محلي:
+
+```bash
+python3 -m http.server 8000
+# افتح http://localhost:8000
+```
+
 ## محتويات المجلد
 - `index.html` + 9 صفحات داخلية
 - `assets/css/style.css` — التصميم كله
