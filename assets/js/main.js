@@ -13,6 +13,22 @@
       document.body.style.overflow = open ? "hidden" : "";
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
+    var closeNav = function () {
+      nav.classList.remove("open");
+      burger.classList.remove("open");
+      document.body.classList.remove("nav-open");
+      document.body.style.overflow = "";
+      burger.setAttribute("aria-expanded", "false");
+    };
+    // الضغط على الجزء المظلل جنب القائمة يقفلها
+    document.addEventListener("click", function (e) {
+      if (!nav.classList.contains("open")) return;
+      if (nav.contains(e.target) || burger.contains(e.target)) return;
+      closeNav();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("open")) closeNav();
+    });
     nav.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", function (e) {
         // expand dropdown parent on mobile instead of navigating (first tap)

@@ -89,28 +89,38 @@ h1,h2,h3,h4{font-family:var(--fd);line-height:1.4;color:var(--navy)}
   /* backdrop-filter would make .header a containing block for the fixed drawer,
      clipping it to the header's own box — the bar is 94% opaque anyway */
   .header{backdrop-filter:none}
-  .nav{position:fixed;inset:0;top:0;background:#000;flex-direction:column;justify-content:flex-start;
-    align-items:stretch;padding:110px 26px 40px;gap:.3rem;transform:translateX(100%);transition:.35s;
-    z-index:49;overflow-y:auto}
+  /* لوح أبيض بطول الصفحة كلها + طبقة تظليل على باقي الشاشة */
+  .nav{position:fixed;inset-block:0;inset-inline-start:0;width:min(86vw,380px);
+    background:#fff;flex-direction:column;justify-content:flex-start;
+    align-items:stretch;padding:104px 20px 40px;gap:.25rem;transform:translateX(100%);
+    transition:transform .35s cubic-bezier(.4,0,.2,1);
+    z-index:49;overflow-y:auto;overscroll-behavior:contain;
+    box-shadow:-12px 0 40px rgba(11,43,76,.22)}
   .nav.open{transform:translateX(0)}
-  .nav a{color:#fff;font-size:1.15rem;width:100%;justify-content:space-between}
-  .nav a:hover,.nav li.active>a{background:rgba(255,255,255,.08);color:var(--orange-l)}
-  .dropdown{position:static;opacity:1;visibility:visible;transform:none;background:rgba(255,255,255,.05);
-    box-shadow:none;display:none;border-top:0;border-radius:12px;margin-top:.3rem;padding:.35rem;min-width:0}
+  body.nav-open::after{content:"";position:fixed;inset:0;z-index:48;
+    background:rgba(11,43,76,.55);backdrop-filter:blur(2px);animation:scrimIn .3s}
+  @keyframes scrimIn{from{opacity:0}}
+  .nav a{color:var(--navy);font-size:1.08rem;width:100%;justify-content:space-between;
+    padding:.72rem .85rem;border-radius:11px}
+  .nav a:hover,.nav li.active>a{background:#eaf3fb;color:var(--blue)}
+  .nav li.active>a{font-weight:800}
+  .dropdown{position:static;opacity:1;visibility:visible;transform:none;background:var(--bg);
+    box-shadow:none;display:none;border-top:0;border:1px solid var(--line);border-radius:12px;
+    margin-top:.35rem;padding:.35rem;min-width:0}
   .dropdown::before{display:none}
   .nav li.exp .dropdown{display:block}
   .nav li.exp>a .caret{transform:rotate(180deg)}
-  .dropdown a{color:#dbe9f6;font-size:1rem;font-weight:600;padding:.7rem .8rem;
+  .dropdown a{color:var(--ink);font-size:.97rem;font-weight:600;padding:.65rem .75rem;
     justify-content:flex-start;white-space:normal}
-  .dropdown a svg{width:22px;height:22px;color:var(--orange-l)}
-  .dropdown a:hover{background:rgba(255,255,255,.1);color:#fff}
-  .dropdown a:hover svg{color:#fff}
-  .dropdown a.all{color:var(--orange-l)}
-  .dropdown a.all::before{background:rgba(255,255,255,.18)}
-  .dropdown a.all:hover{background:rgba(238,135,34,.16);color:var(--orange-l)}
-  .dropdown a.all:hover svg{color:var(--orange-l)}
+  .dropdown a svg{width:21px;height:21px;color:var(--cyan)}
+  .dropdown a:hover{background:#fff;color:var(--blue)}
+  .dropdown a:hover svg{color:var(--blue)}
+  .dropdown a.all{color:var(--orange)}
+  .dropdown a.all::before{background:var(--line)}
+  .dropdown a.all:hover{background:#fef4ea;color:var(--orange-d)}
+  .dropdown a.all:hover svg{color:var(--orange-d)}
   .burger{display:block;position:relative;z-index:51}
-  .burger.open span{background:#fff}
+  .burger.open span{background:var(--navy)}
   .header-cta .btn{display:none}
   .header-cta .burger{display:block}
 }
